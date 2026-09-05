@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Центр спортивного программирования БГИТУ — набор открыт</title>
+<meta name="description" content="Набор в Центр спортивного программирования БГИТУ. Шесть направлений, спортивные разряды, заработок с первого семестра. Ближайшее — фестиваль по информационной безопасности 26–30 сентября.">
+<meta property="og:title" content="Центр спортивного программирования БГИТУ — набор открыт">
+<meta property="og:description" content="Шесть направлений, официальные спортивные разряды, заработок с первого семестра. Опыт не обязателен.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0D1420;
+  --panel:#141E2E;
+  --line:#22304A;
+  --lamp:#F0A824;
+  --live:#35C97A;
+  --chalk:#E9E7E1;
+  --muted:#8496AF;
+  --display:"Oswald","PT Sans Narrow","Arial Narrow",sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--ink);color:var(--chalk);
+  font-family:var(--body);font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+
+/* ---- шапка ---- */
+.bar{
+  position:sticky;top:0;z-index:20;background:rgba(13,20,32,.94);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.brand{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:.02em}
+.brand span{color:var(--lamp)}
+.btn{
+  display:inline-block;background:var(--lamp);color:#2A1B02;
+  font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:.02em;
+  padding:11px 22px;border-radius:2px;text-decoration:none;white-space:nowrap;
+}
+.btn:hover{background:#FFBB3D}
+.btn:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--lamp);outline-offset:3px}
+.btn.ghost{background:transparent;color:var(--chalk);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--lamp);color:var(--lamp)}
+.bar .btn{padding:9px 18px;font-size:15px}
+
+/* ---- герой ---- */
+.hero{padding:76px 0 60px}
+.kicker{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:14px;color:var(--live);margin-bottom:22px;
+}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--live);flex:none}
+h1{
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(31px,8.4vw,74px);line-height:1.04;letter-spacing:-.01em;
+  margin:0 0 22px;max-width:15ch;
+}
+.lede{font-size:20px;color:var(--muted);max-width:52ch;margin:0 0 34px}
+.lede b{color:var(--chalk);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ---- баннер фестиваля ---- */
+.alert{
+  border:1px solid var(--lamp);border-radius:3px;padding:26px 28px;
+  margin:8px 0 72px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
+}
+.alert h2{font-family:var(--display);font-weight:600;font-size:26px;margin:0 0 10px;line-height:1.2}
+.alert p{margin:0;color:var(--muted);max-width:60ch;font-size:16px}
+.alert p b{color:var(--chalk);font-weight:500}
+.when{font-family:var(--display);font-size:15px;color:var(--lamp);letter-spacing:.06em;margin-bottom:6px}
+
+/* ---- секции ---- */
+section{padding:0 0 72px}
+h2.sec{font-family:var(--display);font-weight:500;font-size:clamp(28px,4.4vw,40px);margin:0 0 10px;line-height:1.15}
+.sub{color:var(--muted);margin:0 0 32px;max-width:62ch}
+
+/* ---- сравнение ---- */
+.versus{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.col{border:1px solid var(--line);border-radius:3px;padding:24px}
+.col.win{border-color:var(--lamp)}
+.col h3{font-family:var(--display);font-weight:500;font-size:20px;margin:0 0 16px}
+.col.dim h3,.col.dim li{color:var(--muted)}
+.col ul{margin:0;padding-left:20px}
+.col li{margin-bottom:9px;font-size:16px}
+
+/* ---- табло направлений ---- */
+.board{border-top:1px solid var(--line)}
+details.row{border-bottom:1px solid var(--line)}
+details.row summary{
+  list-style:none;cursor:pointer;padding:20px 4px;
+  display:grid;grid-template-columns:44px 1fr auto;gap:18px;align-items:baseline;
+}
+details.row summary::-webkit-details-marker{display:none}
+.no{font-family:var(--display);font-size:20px;color:var(--lamp);font-variant-numeric:tabular-nums}
+.name{font-family:var(--display);font-weight:500;font-size:23px;line-height:1.2}
+.name small{display:block;font-family:var(--body);font-weight:400;font-size:15px;color:var(--muted);margin-top:3px}
+.seats{font-family:var(--display);font-size:20px;color:var(--chalk);font-variant-numeric:tabular-nums;white-space:nowrap}
+.seats i{font-style:normal;font-size:13px;color:var(--muted);margin-left:5px}
+details.row[open] summary .name{color:var(--lamp)}
+.body{padding:0 4px 26px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.body h4{font-family:var(--display);font-weight:500;font-size:17px;margin:0 0 10px;color:var(--muted)}
+.body.win h4{color:var(--lamp)}
+.body ul{margin:0;padding-left:20px}
+.body li{margin-bottom:7px;font-size:16px}
+.hook{grid-column:1/-1;border-left:2px solid var(--lamp);padding-left:16px;color:var(--chalk);font-size:16px}
+
+/* ---- деньги ---- */
+.pay{border:1px solid var(--line);border-radius:3px;padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.rate{font-family:var(--display);font-weight:600;font-size:clamp(56px,11vw,96px);line-height:1;color:var(--lamp);margin:0}
+.rate + p{margin:8px 0 0;font-size:18px}
+.rate ~ p.fine{color:var(--muted);font-size:16px;margin-top:16px}
+table.calc{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+table.calc td{padding:11px 0;border-bottom:1px solid var(--line);font-size:16px}
+table.calc td:first-child{color:var(--muted)}
+table.calc td:last-child{text-align:right;font-family:var(--display);font-size:21px}
+
+/* ---- выгоды ---- */
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.perk{background:var(--ink);padding:22px}
+.perk h3{font-family:var(--display);font-weight:500;font-size:19px;margin:0 0 7px;color:var(--lamp)}
+.perk p{margin:0;font-size:15px;color:var(--muted);line-height:1.55}
+
+/* ---- как устроено ---- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.step{border-top:2px solid var(--lamp);padding-top:16px}
+.step h3{font-family:var(--display);font-weight:500;font-size:19px;margin:0 0 7px}
+.step p{margin:0;font-size:15px;color:var(--muted);line-height:1.55}
+
+/* ---- финал ---- */
+.end{background:var(--panel);border-radius:3px;padding:44px 34px;text-align:center;margin-bottom:60px}
+.end h2{font-family:var(--display);font-weight:600;font-size:clamp(30px,5vw,44px);margin:0 0 14px;line-height:1.12}
+.end p{color:var(--muted);max-width:48ch;margin:0 auto 28px}
+footer{border-top:1px solid var(--line);padding:28px 0 46px;color:var(--muted);font-size:15px}
+footer a{color:var(--lamp)}
+
+@media (max-width:760px){
+  body{font-size:16px}
+  h1{font-size:clamp(26px,7.4vw,44px)}
+  .lede{font-size:18px}
+  .hero{padding:52px 0 40px}
+  .alert{grid-template-columns:1fr;padding:22px}
+  .versus,.body,.pay{grid-template-columns:1fr}
+  .perks,.steps{grid-template-columns:1fr}
+  .steps{gap:24px}
+  details.row summary{grid-template-columns:34px 1fr;gap:12px}
+  .seats{grid-column:2;font-size:16px;color:var(--lamp)}
+  .bar .brand{font-size:17px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="wrap">
+  <div class="brand">ЦСП <span>БГИТУ</span></div>
+  <a class="btn" href="#zapis">Записаться</a>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <p class="kicker"><span class="dot"></span>Набор открыт</p>
+  <h1>Спортивное программирование в БГИТУ</h1>
+  <p class="lede">Официальный вид спорта из Всероссийского реестра. Это значит настоящие разряды, официальные соревнования и основание для повышенной стипендии. <b>Опыт не обязателен — учим с нуля.</b></p>
+  <div class="actions">
+    <a class="btn" href="#zapis">Записаться</a>
+    <a class="btn ghost" href="#napravleniya">Шесть направлений</a>
+  </div>
+</div></header>
+
+<div class="wrap">
+  <div class="alert">
+    <div>
+      <p class="when">26–30 сентября</p>
+      <h2>Фестиваль по информационной безопасности</h2>
+      <p><b>Проживание и питание оплачиваются.</b> Ищем студентов, которые хоть немного представляют, что такое CTF — решали отдельные таски, смотрели разборы, копались в Linux. И тех, кто пока не знает ничего, но очень хочет разобраться: на фестивале как раз учат.</p>
+    </div>
+    <a class="btn" href="#zapis">Поехать</a>
+  </div>
+</div>
+
+<section><div class="wrap">
+  <h2 class="sec">Не ещё одна IT-секция</h2>
+  <p class="sub">Прикладной фокус, который может дать только инженерно-технологический вуз.</p>
+  <div class="versus">
+    <div class="col dim">
+      <h3>Обычный студенческий IT-клуб</h3>
+      <ul>
+        <li>олимпиадные задачи в вакууме</li>
+        <li>прямая конкуренция с профильными IT-вузами</li>
+        <li>нет связи с предприятиями региона</li>
+        <li>подготовленный выпускник уезжает</li>
+      </ul>
+    </div>
+    <div class="col win">
+      <h3>Центр спортивного программирования</h3>
+      <ul>
+        <li>БПЛА — мониторинг стройплощадок и обмерные работы</li>
+        <li>ИИ — прикладные задачи строительства</li>
+        <li>робототехника — автоматизация производств</li>
+        <li>информационная безопасность — защита промышленных систем</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="napravleniya"><div class="wrap">
+  <h2 class="sec">Шесть направлений</h2>
+  <p class="sub">Нажмите на строку, чтобы раскрыть подробности. Можно начать с одного направления и перейти в другое — никто не держит.</p>
+
+  <div class="board">
+
+    <details class="row">
+      <summary>
+        <span class="no">01</span>
+        <span class="name">Программирование БПЛА<small>Дроны, полётные задания, компьютерное зрение</small></span>
+        <span class="seats">8<i>мест</i></span>
+      </summary>
+      <div class="body win">
+        <div><h4>Что ты делаешь</h4><ul>
+          <li>пишешь полётные задания и автономную навигацию</li>
+          <li>тренируешься в симуляторе, летаешь на реальных бортах</li>
+          <li>полигон — спортзал университета</li>
+          <li>компьютерное зрение: распознавание объектов с воздуха</li>
+        </ul></div>
+        <div><h4>Зачем это тебе</h4><ul>
+          <li>заработок уже в первом семестре — 1500 ₽ в час</li>
+          <li>операторы и разработчики БАС — острый дефицит на рынке</li>
+          <li>прикладные задачи вуза: обмеры и мониторинг стройплощадок</li>
+        </ul></div>
+        <p class="hook">Единственное направление, где деньги начинаются с первого семестра.</p>
+      </div>
+    </details>
+
+    <details class="row">
+      <summary>
+        <span class="no">02</span>
+        <span class="name">Продуктовое программирование<small>Командные хакатоны и заказная разработка</small></span>
+        <span class="seats">10<i>мест</i></span>
+      </summary>
+      <div class="body win">
+        <div><h4>Что ты делаешь</h4><ul>
+          <li>за 48 часов проходишь путь от идеи до работающего продукта</li>
+          <li>полный цикл: требования, бэкенд, интерфейс, защита перед жюри</li>
+          <li>работаешь в команде с распределением ролей</li>
+          <li>учишься укладываться в срок, а не «доделать потом»</li>
+        </ul></div>
+        <div><h4>Зачем это тебе</h4><ul>
+          <li>вход в сообщество разработчиков Центра — мы берём и выполняем заказы</li>
+          <li>реальные продукты в портфолио вместо учебных лабораторных</li>
+          <li>опыт командной работы, который спрашивают на любом собеседовании</li>
+        </ul></div>
+        <p class="hook">Отсюда формируется команда, которая делает продукты на заказ. Это работа, а не кружок.</p>
+      </div>
+    </details>
+
+    <details class="row">
+      <summary>
+        <span class="no">03</span>
+        <span class="name">Кибербезопасность<small>CTF: поиск уязвимостей и защита систем</small></span>
+        <span class="seats">6<i>мест</i></span>
+      </summary>
+      <div class="body win">
+        <div><h4>Что ты делаешь</h4><ul>
+          <li>CTF: Web, Crypto, Reverse, PWN, Forensics, OSINT</li>
+          <li>ищешь уязвимости и закрываешь их</li>
+          <li>работаешь на собственном киберполигоне Центра</li>
+          <li>разбираешь реальные инциденты, а не учебные примеры</li>
+        </ul></div>
+        <div><h4>Зачем это тебе</h4><ul>
+          <li>самая востребованная и высокооплачиваемая специальность в IT</li>
+          <li>компании отбирают стажёров прямо на CTF-соревнованиях</li>
+          <li>компетенции, которые работодатель проверяет на входе</li>
+        </ul></div>
+        <p class="hook">С этого направления едем на фестиваль 26–30 сентября.</p>
+      </div>
+    </details>
+
+    <details class="row">
+      <summary>
+        <span class="no">04</span>
+        <span class="name">Робототехника<small>Манипуляторы, мобильные роботы, автоматизация</small></span>
+        <span class="seats">6<i>мест</i></span>
+      </summary>
+      <div class="body win">
+        <div><h4>Что ты делаешь</h4><ul>
+          <li>программируешь манипуляторы и мобильных роботов</li>
+          <li>решаешь соревновательные задачи на полигоне</li>
+          <li>связка «датчик — алгоритм — исполнительный механизм»</li>
+          <li>работаешь с железом, а не только с экраном</li>
+        </ul></div>
+        <div><h4>Зачем это тебе</h4><ul>
+          <li>автоматизация производств — то, что предприятия области реально покупают</li>
+          <li>инженерные компетенции на стыке программирования и механики</li>
+          <li>ближайшее направление к БПЛА: можно совмещать</li>
+        </ul></div>
+        <p class="hook">Если хочется, чтобы код двигал что-то в реальном мире, — тебе сюда.</p>
+      </div>
+    </details>
+
+    <details class="row">
+      <summary>
+        <span class="no">05</span>
+        <span class="name">Алгоритмы и ИИ<small>Задачи на время плюс прикладные нейросети</small></span>
+        <span class="seats">10<i>мест</i></span>
+      </summary>
+      <div class="body win">
+        <div><h4>Что ты делаешь</h4><ul>
+          <li>задачи на время: структуры данных, графы, динамика</li>
+          <li>разбор решений после каждого контеста</li>
+          <li>надстройка: нейросети и прикладные задачи ИИ</li>
+          <li>личный зачёт — результат зависит только от тебя</li>
+        </ul></div>
+        <div><h4>Зачем это тебе</h4><ul>
+          <li>именно эти задачи дают на собеседованиях в крупные IT-компании</li>
+          <li>соревнований больше всего — разряды растут быстрее</li>
+          <li>база для магистратуры и научной работы</li>
+        </ul></div>
+        <p class="hook">Классика вида спорта. Самый короткий путь к первому разряду.</p>
+      </div>
+    </details>
+
+    <details class="row">
+      <summary>
+        <span class="no">06</span>
+        <span class="name">Фиджитал-спорт<small>Половина матча в симуляторе, половина на площадке</small></span>
+        <span class="seats">8<i>мест</i></span>
+      </summary>
+      <div class="body win">
+        <div><h4>Что ты делаешь</h4><ul>
+          <li>футбольное двоеборье: матч в симуляторе, затем на площадке</li>
+          <li>баскетбольное двоеборье по той же схеме</li>
+          <li>двоеборье — тактическая стрельба: симулятор и реальный тир</li>
+          <li>готовишься и за компьютером, и в зале</li>
+        </ul></div>
+        <div><h4>Зачем это тебе</h4><ul>
+          <li>разряды по второму виду спорта, помимо программирования</li>
+          <li>вид спорта молодой — конкуренция ниже, попасть в сборную реальнее</li>
+          <li>подходит тем, кто играет и при этом не хочет бросать спорт</li>
+        </ul></div>
+        <p class="hook">Для тех, кому мало клавиатуры. Побеждает тот, кто силён и там, и там.</p>
+      </div>
+    </details>
+
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="sec">Деньги — сразу, не «когда-нибудь»</h2>
+  <p class="sub">Направление БПЛА: договорённость с частной школой уже есть.</p>
+  <div class="pay">
+    <div>
+      <p class="rate">1500 ₽</p>
+      <p>за час занятий со школьниками</p>
+      <p class="fine">Ты ведёшь у школьников занятия по программированию дронов. Это твоя первая запись в трудовой и первый настоящий доход по специальности. График подстраивается под учёбу.</p>
+    </div>
+    <table class="calc">
+      <tr><td>4 часа в неделю</td><td>24 000 ₽</td></tr>
+      <tr><td>6 часов в неделю</td><td>36 000 ₽</td></tr>
+      <tr><td>8 часов в неделю</td><td>48 000 ₽</td></tr>
+    </table>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="sec">Что ты получишь</h2>
+  <p class="sub">Кроме удовольствия от того, что твой код побеждает чужой.</p>
+  <div class="perks">
+    <div class="perk"><h3>Разряд</h3><p>Официальный спортивный разряд по виду спорта из Всероссийского реестра.</p></div>
+    <div class="perk"><h3>Стипендия</h3><p>Разряд — основание для повышенной государственной стипендии.</p></div>
+    <div class="perk"><h3>Практика</h3><p>Участие засчитывается как учебная и производственная практика.</p></div>
+    <div class="perk"><h3>Портфолио</h3><p>Реальные проекты вместо учебных лабораторных работ.</p></div>
+    <div class="perk"><h3>Работа</h3><p>Стажировки у компаний-партнёров Центра, а для многих — оффер.</p></div>
+    <div class="perk"><h3>Поездки</h3><p>Выезды на региональные и всероссийские соревнования.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="sec">Как всё устроено</h2>
+  <p class="sub">Без формализма: тренировки, соревнования, разбор ошибок.</p>
+  <div class="steps">
+    <div class="step"><h3>База</h3><p>Своя аудитория с закреплённым оборудованием — не «класс по расписанию».</p></div>
+    <div class="step"><h3>Тренировки</h3><p>Два раза в неделю по секциям плюс общий разбор задач.</p></div>
+    <div class="step"><h3>Полигон</h3><p>Спортзал под БПЛА и фиджитал, симулятор — в любое время.</p></div>
+    <div class="step"><h3>Старты</h3><p>Внутренний чемпионат БГИТУ, онлайн-этапы, затем выезды.</p></div>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="end" id="zapis">
+  <h2>Заполни таблицу — и ты в команде</h2>
+  <p>Группа, ФИО, дата рождения, направление и пара слов о том, что уже умеешь. Пять минут.</p>
+  <a class="btn" href="ВСТАВЬТЕ_ССЫЛКУ_НА_ТАБЛИЦУ">Открыть форму записи</a>
+</div></div>
+
+<footer><div class="wrap">
+  Центр спортивного программирования БГИТУ · Вопросы: <a href="mailto:ВСТАВЬТЕ_ПОЧТУ">ВСТАВЬТЕ_ПОЧТУ</a> · <a href="ВСТАВЬТЕ_ССЫЛКУ_НА_ГРУППУ_ВК">Группа ВКонтакте</a>
+</div></footer>
+
+</body>
+</html>
